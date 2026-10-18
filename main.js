@@ -18,15 +18,14 @@ function calculate(event) {
     const operation = operationInput.value;
 
     if (firstNumberText === "" || secondNumberText === "") {
-        showMessage("Error: both number fields are required.", true);
+        showMessage("Both number fields are required.", true);
         return;
     }
-
     const firstNumber = Number(firstNumberText);
     const secondNumber = Number(secondNumberText);
 
     if (!Number.isFinite(firstNumber) || !Number.isFinite(secondNumber)) {
-        showMessage("Error: enter valid real numbers.", true);
+        showMessage("Enter valid real numbers.", true);
         return;
     }
 
@@ -44,13 +43,13 @@ function calculate(event) {
             break;
         case "/":
             if (secondNumber === 0) {
-                showMessage("Error: division by zero is not allowed.", true);
+                showMessage("Division by zero is not allowed.", true);
                 return;
             }
             result = firstNumber / secondNumber;
             break;
         default:
-            showMessage("Error: select a valid operation.", true);
+            showMessage("Select a valid operation.", true);
             return;
     }
 
@@ -64,13 +63,12 @@ function resetCalculator() {
 }
 
 function exitCalculator() {
-    const confirmed = confirm("Do you want to exit the calculator?");
+    const confirmed = confirm("Do you want to end this calculator session?");
     if (!confirmed) return;
     calculatorForm.querySelectorAll("input, select, button").forEach((element) => {
         element.disabled = true;
     });
-    showMessage("Calculator session ended. You may now close this browser tab.", false);
-    window.close();
+    showMessage("Calculator session ended. You may now close this tab.", false);
 }
 
 function showMessage(message, isError) {
