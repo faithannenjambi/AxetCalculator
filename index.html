@@ -7,35 +7,45 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="calculator-container">
-    <h2>Calculator</h2>
-    <form id="calculator-form" autocomplete="off">
-      <div class="input-group">
-        <label for="first-number">First number</label>
-        <input type="text" id="first-number" name="first-number" required />
+  <div class="bg-gradient">
+    <main class="calculator-card">
+      <header>
+        <h1>Calculator</h1>
+        <p class="subtitle">Perform basic operations on two numbers</p>
+      </header>
+      <form id="calculator-form" autocomplete="off" novalidate>
+        <div class="inputs">
+          <div class="input-group">
+            <label for="first-number">First number</label>
+            <input type="text" id="first-number" name="first-number" required autocomplete="off" inputmode="decimal" />
+          </div>
+          <div class="input-group">
+            <label for="second-number">Second number</label>
+            <input type="text" id="second-number" name="second-number" required autocomplete="off" inputmode="decimal" />
+          </div>
+        </div>
+        <div class="input-group full-width">
+          <label for="operation">Operation</label>
+          <select id="operation" name="operation">
+            <option value="+">Addition (+)</option>
+            <option value="-">Subtraction (-)</option>
+            <option value="*">Multiplication (*)</option>
+            <option value="/">Division (/)</option>
+          </select>
+        </div>
+        <div class="buttons-row">
+          <button type="submit" class="primary">Calculate</button>
+          <button type="button" id="reset-btn" class="neutral">Reset</button>
+          <button type="button" id="exit-btn" class="danger">Exit</button>
+        </div>
+      </form>
+      <div id="result" class="result-message" aria-live="polite">
+        Enter two numbers and select an operation.
       </div>
-      <div class="input-group">
-        <label for="second-number">Second number</label>
-        <input type="text" id="second-number" name="second-number" required />
-      </div>
-      <div class="input-group">
-        <label for="operation">Operation</label>
-        <select id="operation" name="operation">
-          <option value="+">Addition (+)</option>
-          <option value="-">Subtraction (-)</option>
-          <option value="*">Multiplication (*)</option>
-          <option value="/">Division (/)</option>
-        </select>
-      </div>
-      <div class="button-row">
-        <button type="submit">Calculate</button>
-        <button type="button" id="reset-btn" class="secondary">Reset</button>
-        <button type="button" id="exit-btn" class="danger">Exit</button>
-      </div>
-    </form>
-    <div id="result" class="result-message">
-      Enter two numbers and select an operation.
-    </div>
+    </main>
+    <footer>
+      <span>Made with <span class="heart">&hearts;</span></span>
+    </footer>
   </div>
   <script src="main.js"></script>
 </body>
